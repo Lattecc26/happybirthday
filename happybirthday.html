@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Happy Birthday! 🎉✨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft Yahei", sans-serif;
+            overflow: hidden;
+            background: #000;
+            color: #fff;
+        }
+
+        .password-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #f1f4f9, #dff1ff);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            transition: opacity 1s, transform 1s;
+            overflow: hidden;
+        }
+
+        .password-page .color {
+            position: absolute;
+            filter: blur(150px);
+            z-index: 1;
+        }
+
+        .password-page .color:nth-child(1) {
+            top: -350px;
+            width: 600px;
+            height: 600px;
+            background: #ff359b;
+        }
+
+        .password-page .color:nth-child(2) {
+            bottom: -150px;
+            left: 100px;
+            width: 500px;
+            height: 500px;
+            background: #fffd87;
+        }
+
+        .password-page .color:nth-child(3) {
+            bottom: 50px;
+            right: 100px;
+            width: 500px;
+            height: 500px;
+            background: #00d2ff;
+        }
+
+        .password-page .glow {
+            position: absolute;
+            z-index: 9999;
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 40%, rgba(255,255,255,0.1) 100%);
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: floatBubble 8s ease-in-out infinite;
+        }
+
+        .password-page .glow::before {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            width: 25%;
+            height: 15%;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(-45deg);
+        }
+
+        .password-page .glow::after {
+            content: '';
+            position: absolute;
+            bottom: 15%;
+            right: 20%;
+            width: 15%;
+            height: 10%;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(-45deg);
+        }
+
+        @keyframes floatBubble {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.05);
+            }
+        }
+
+        .password-page .glow:nth-child(1) {
+            top: 10%;
+            right: 10%;
+            width: 180px;
+            height: 180px;
+            animation-delay: 0s;
+        }
+
+        .password-page .glow:nth-child(2) {
+            bottom: 15%;
+            left: 10%;
+            width: 150px;
+            height: 150px;
+            animation-delay: -2s;
+        }
+
+        .password-page .glow:nth-child(3) {
+            top: 50%;
+            left: 50%;
+            width: 250px;
+            height: 250px;
+            animation-delay: -4s;
+        }
+
+        .password-page .glow:nth-child(4) {
+            top: 20%;
+            left: 20%;
+            width: 120px;
+            height: 120px;
+            animation-delay: -1s;
+        }
+
+        .password-page .glow:nth-child(5) {
+            bottom: 20%;
+            right: 15%;
+            width: 160px;
+            height: 160px;
+            animation-delay: -3s;
+        }
+
+        .password-page .glow:nth-child(6) {
+            top: 60%;
+            left: 5%;
+            width: 250px;
+            height: 250px;
+            animation-delay: -5s;
+        }
+
+        .password-page .glow:nth-child(7) {
+            top: 5%;
+            left: 50%;
+            width: 180px;
+            height: 180px;
+            animation-delay: -6s;
+        }
+
+        .password-page .square {
+            position: absolute;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            animation: floatSquare calc(8s + var(--i) * 2s) ease-in-out infinite;
+            animation-delay: calc(-1s * var(--i));
+            z-index: 2;
+        }
+
+        @keyframes floatSquare {
+            0% {
+                transform: translateY(-40px) rotate(0deg);
+            }
+            25% {
+                transform: translateY(20px) rotate(90deg);
+            }
+            50% {
+                transform: translateY(40px) rotate(180deg);
+            }
+            75% {
+                transform: translateY(20px) rotate(270deg);
+            }
+            100% {
+                transform: translateY(-40px) rotate(360deg);
+            }
+        }
+
+        .password-page .square:nth-child(1) {
+            top: -30px;
+            left: 60px;
+            width: 80px;
+            height: 80px;
+        }
+
+        .password-page .square:nth-child(2) {
+            top: -20px;
+            right: 40px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .password-page .square:nth-child(3) {
+            top: 80px;
+            left: 40px;
+            width: 120px;
+            height: 120px;
+        }
+
+        .password-page .square:nth-child(4) {
+            top: 120px;
+            right: 60px;
+            width: 90px;
+            height: 90px;
+        }
+
+        .password-page .square:nth-child(5) {
+            bottom: 20px;
+            right: 80px;
+            width: 70px;
+            height: 70px;
+        }
+
+        .password-page .square:nth-child(6) {
+            top: 40px;
+            left: 100px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .password-page .square:nth-child(7) {
+            top: 60px;
+            right: 120px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .password-page .square:nth-child(8) {
+            bottom: 40px;
+            left: 120px;
+            width: 55px;
+            height: 55px;
+        }
+
+        .password-page .square:nth-child(9) {
+            top: 150px;
+            left: 80px;
+            width: 35px;
+            height: 35px;
+        }
+
+        .password-page .square:nth-child(10) {
+            bottom: 10px;
+            left: 180px;
+            width: 45px;
+            height: 45px;
+        }
+
+        .password-page .square:nth-child(11) {
+            top: 30px;
+            right: 180px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .password-page .square:nth-child(12) {
+            bottom: 80px;
+            right: 160px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .password-page .square:nth-child(13) {
+            top: 140px;
+            left: 160px;
+            width: 35px;
+            height: 35px;
+        }
+
+        .password-page .square:nth-child(14) {
+            bottom: 20px;
+            left: 100px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .password-page .square:nth-child(15) {
+            top: -10px;
+            right: 150px;
+            width: 25px;
+            height: 25px;
+        }
+
+        .password-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 
+                0 0 0 2px rgba(255, 255, 255, 0.15),
+                0 20px 45px rgba(0, 0, 0, 0.15),
+                0 0 50px rgba(255, 255, 255, 0.2);
+            border: none;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            width: 90%;
+            max-width: 400px;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: visible;
+            margin: 0 auto;
+        }
+
+        .password-card .corner {
+            position: absolute;
+            backdrop-filter: blur(12px);
+            box-shadow: 
+                0 0 0 2px rgba(255, 255, 255, 0.2),
+                0 15px 35px rgba(0, 0, 0, 0.15),
+                0 0 40px rgba(255, 255, 255, 0.25);
+            border: none;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 16px;
+            z-index: 5;
+        }
+
+        .password-card .corner:nth-child(1) {
+            top: -50px;
+            left: 10%;
+            width: 60px;
+            height: 60px;
+        }
+
+        .password-card .corner:nth-child(2) {
+            top: -30px;
+            right: -5%;
+            width: 100px;
+            height: 100px;
+        }
+
+        .password-card .corner:nth-child(3) {
+            top: 30%;
+            left: -10%;
+            width: 120px;
+            height: 120px;
+        }
+
+        .password-card .corner:nth-child(4) {
+            top: 45%;
+            right: -8%;
+            width: 80px;
+            height: 80px;
+        }
+
+        .password-card .corner:nth-child(5) {
+            bottom: -30px;
+            right: 15%;
+            width: 70px;
+            height: 70px;
+        }
+
+
+
+        .password-icon {
+            width: 20%;
+            height: 20%;
+            max-width: 80px;
+            max-height: 80px;
+            min-width: 60px;
+            min-height: 60px;
+            margin-bottom: 5%;
+            border-radius: 20px;
+            background: url('webwxgetmsgimg.jpg') no-repeat center;
+            background-size: cover;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .password-title {
+            position: relative;
+            color: #fff;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+        .name-input-container {
+            margin: 15px 0;
+            width: 100%;
+        }
+
+        .name-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .name-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .name-input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .password-tip {
+            font-size: 14px;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .password-input {
+            width: 100%;
+            max-width: 300px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            outline: none;
+            padding: 15px 25px;
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .password-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .password-btn {
+            padding: 12px 40px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #666;
+            border: none;
+            border-radius: 35px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            width: 60%;
+            max-width: 200px;
+            min-width: 120px;
+        }
+
+        .password-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .password-card {
+                padding: 20px;
+                min-height: 250px;
+                width: 85%;
+                max-width: 350px;
+            }
+            
+            .password-title {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+            
+            .password-tip {
+                font-size: 13px;
+                margin-bottom: 20px;
+            }
+            
+            .password-icon {
+                margin-bottom: 20px;
+            }
+            
+            .password-btn {
+                padding: 10px 25px;
+                font-size: 15px;
+                width: 70%;
+            }
+            
+            .password-card .corner:nth-child(1) {
+                width: 40px;
+                height: 40px;
+                top: -10px;
+                left: -10px;
+            }
+
+            .password-card .corner:nth-child(2) {
+                width: 40px;
+                height: 40px;
+                top: -10px;
+                right: -10px;
+            }
+
+            .password-card .corner:nth-child(3) {
+                width: 40px;
+                height: 40px;
+                bottom: -10px;
+                left: -10px;
+            }
+
+            .password-card .corner:nth-child(4) {
+                width: 40px;
+                height: 40px;
+                bottom: -10px;
+                right: -10px;
+            }
+
+            .password-card .corner:nth-child(5) {
+                width: 30px;
+                height: 30px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .name-input {
+                font-size: 14px;
+                padding: 10px 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .password-card {
+                padding: 15px;
+                min-height: 220px;
+                width: 80%;
+                max-width: 300px;
+            }
+            
+            .password-title {
+                font-size: 18px;
+                margin-bottom: 12px;
+            }
+            
+            .password-tip {
+                font-size: 12px;
+                margin-bottom: 15px;
+            }
+            
+            .password-icon {
+                margin-bottom: 15px;
+                min-width: 50px;
+                min-height: 50px;
+            }
+            
+            .password-btn {
+                padding: 8px 20px;
+                font-size: 14px;
+                width: 80%;
+            }
+            
+            .password-card .corner:nth-child(1) {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .password-card .corner:nth-child(2) {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .password-card .corner:nth-child(3) {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .password-card .corner:nth-child(4) {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .password-card .corner:nth-child(5) {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        .main-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('star.webp') no-repeat center center;
+            background-size: cover;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s;
+        }
+
+        .bg-gradient {
+            display: none;
+        }
+
+        .main-page .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: fadeIn 2s forwards;
+        }
+
+        .wish {
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 0;
+            opacity: 0;
+            animation: fadeIn 2s 0.5s forwards;
+        }
+
+        .meteor-wish {
+            font-size: 24px;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 2s 1s forwards;
+        }
+
+        .meteor-shower {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .star-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        .star.small {
+            width: 1px;
+            height: 1px;
+            box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.8);
+        }
+
+        .star.medium {
+            width: 2px;
+            height: 2px;
+            box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.9);
+        }
+
+        .star.large {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 6px 3px rgba(255, 255, 255, 1);
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .meteor {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: linear-gradient(45deg, #fff, #4fc3f7, #e1f5fe);
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px rgba(79, 195, 247, 0.8),
+                        0 0 20px 4px rgba(225, 245, 254, 0.6);
+            animation: meteorFall linear forwards;
+        }
+
+        .meteor::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 80px solid transparent;
+            border-right: 0px solid transparent;
+            border-bottom: 2px solid rgba(79, 195, 247, 0.3);
+            transform: translateY(-50%);
+            animation: meteorTail 1s ease-out forwards;
+        }
+
+        @keyframes meteorFall {
+            0% {
+                transform: translateX(-100px) translateY(-100px) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            70% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px)) translateY(calc(100vh + 100px)) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes meteorTail {
+            0% {
+                width: 0;
+                border-bottom-width: 1px;
+                opacity: 1;
+            }
+            50% {
+                width: 150px;
+                border-bottom-width: 2px;
+            }
+            100% {
+                width: 250px;
+                border-bottom-width: 0px;
+                opacity: 0;
+            }
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0;
+            animation: fadeIn 2s 1.5s forwards;
+            margin-top: 60px;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .cake-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease;
+            z-index: 200;
+            overflow: hidden;
+        }
+
+        .cake-page.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cake-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+        }
+
+        .cake-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .cake {
+            position: relative;
+            width: 300px;
+            height: 320px;
+            margin: 0 auto 40px;
+            opacity: 0;
+            animation: cakeAppear 1.5s 0.5s forwards;
+        }
+
+        @keyframes cakeAppear {
+            from { opacity: 0; transform: scale(0.5) translateY(50px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .cake-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(255, 255, 255, 0.3)) brightness(1.1);
+            mix-blend-mode: screen;
+        }
+
+        .blessing-title {
+            font-size: 42px;
+            color: #fff;
+            margin-top: -20px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+            opacity: 0;
+            animation: fadeIn 2s 1.5s forwards;
+        }
+
+        .blessing-text {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 12px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            line-height: 1.6;
+        }
+
+        .blessing-text:nth-child(3) { animation-delay: 2s; }
+        .blessing-text:nth-child(4) { animation-delay: 2.5s; }
+        .blessing-text:nth-child(5) { animation-delay: 3s; }
+        .blessing-text:nth-child(6) { animation-delay: 3.5s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: confettiFall linear forwards;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+        }
+
+
+
+        .firework {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: fireworkExplode 1.5s ease-out forwards;
+        }
+
+        @keyframes fireworkExplode {
+            0% { 
+                transform: translate(0, 0) scale(1); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translate(var(--tx), var(--ty)) scale(0); 
+                opacity: 0; 
+            }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff, 0 0 20px #ffd700;
+            animation: sparkleBlink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkleBlink {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* 流星页样式 */
+        .meteor-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s;
+            z-index: 200;
+        }
+
+        .meteor-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            background-size: cover;
+        }
+
+        .meteor-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .meteor-title {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            animation: fadeIn 2s forwards;
+        }
+
+        .meteor-wish-text {
+            font-size: 22px;
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeIn 2s 0.5s forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="password-page" id="passwordPage">
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        
+        <div class="glow"></div>
+        <div class="glow"></div>
+        <div class="glow"></div>
+        <div class="glow"></div>
+        <div class="glow"></div>
+        <div class="glow"></div>
+        <div class="glow"></div>
+        
+        <div class="square" style="--i:0;"></div>
+        <div class="square" style="--i:1;"></div>
+        <div class="square" style="--i:2;"></div>
+        <div class="square" style="--i:3;"></div>
+        <div class="square" style="--i:4;"></div>
+        <div class="square" style="--i:5;"></div>
+        <div class="square" style="--i:6;"></div>
+        <div class="square" style="--i:7;"></div>
+        <div class="square" style="--i:8;"></div>
+        <div class="square" style="--i:9;"></div>
+        <div class="square" style="--i:10;"></div>
+        <div class="square" style="--i:11;"></div>
+        <div class="square" style="--i:12;"></div>
+        <div class="square" style="--i:13;"></div>
+        <div class="square" style="--i:14;"></div>
+        
+        <div class="password-card" id="enterCard">
+            <div class="corner"></div>
+            <div class="corner"></div>
+            <div class="corner"></div>
+            <div class="corner"></div>
+            <div class="corner"></div>
+            
+            <div class="password-icon"></div>
+            <div class="password-title">请输入您的名字</div>
+            <div class="name-input-container">
+                <input type="text" class="name-input" id="nameInput" placeholder="请输入您的名字" maxlength="10">
+            </div>
+            <div class="password-tip">准备好迎接惊喜了吗？</div>
+            <button class="password-btn" id="enterBtn">进入</button>
+        </div>
+    </div>
+
+    <div class="main-page" id="mainPage">
+            <div class="star-field" id="starField"></div>
+            
+            <div class="meteor-shower" id="meteorShower"></div>
+            
+            <div class="content">
+                <div class="name" id="name"></div>
+                <div class="wish" id="wish"></div>
+                <button class="btn" id="meteorBtn">再点一下</button>
+            </div>
+        </div>
+
+    <div class="cake-page" id="cakePage">
+        <div class="cake-bg"></div>
+        <div class="cake-container">
+            <div class="cake">
+                <img src="./cake.png" alt="生日蛋糕" class="cake-img">
+            </div>
+
+            <div class="blessing-title">🎂 生日快乐 🎂</div>
+            <div class="blessing-text">愿你在新的一岁里，眼里有光，心中有爱，脚下有路，所遇皆温柔。</div>
+            <div class="blessing-text">新的一岁，愿你平安喜乐，万事顺意，不用奔赴大海，也能春暖花开。</div>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="./music.ogg" type="audio/ogg">
+    </audio>
+
+    <script>
+        // 进入按钮功能
+        const enterBtn = document.getElementById('enterBtn');
+        const nameInput = document.getElementById('nameInput');
+        const mainPage = document.getElementById('mainPage');
+        const passwordPage = document.getElementById('passwordPage');
+
+        enterBtn.addEventListener('click', () => {
+            // 获取输入的名字，如果没有输入则使用默认值
+            const userName = nameInput.value.trim() || '朋友';
+            
+            // 点击进入按钮，直接显示主页面
+            passwordPage.style.opacity = '0';
+            passwordPage.style.transform = 'translateY(-100%)';
+            setTimeout(() => {
+                mainPage.style.opacity = '1';
+                mainPage.style.pointerEvents = 'auto';
+                // 启动动态星星、流星效果和打字机动画
+                createStarField();
+                startLightMeteorShower(); // 轻度流星效果
+                startTypewriterAnimation(userName); // 传入用户名
+                // 播放背景音乐
+                const bgMusic = document.getElementById('bgMusic');
+                bgMusic.volume = 0.5;
+                bgMusic.play().catch(err => console.log('音乐播放被阻止:', err));
+            }, 1000);
+        });
+
+        // 动态星星功能
+        function createStarField() {
+            const starField = document.getElementById('starField');
+            const starCount = 200; // 增加星星数量
+            
+            for (let i = 0; i < starCount; i++) {
+                createStar(starField);
+            }
+        }
+
+        function createStar(container) {
+            const star = document.createElement('div');
+            
+            // 随机星星大小
+            const sizes = ['small', 'medium', 'large'];
+            const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
+            
+            // 随机位置
+            const left = Math.random() * 100;
+            const top = Math.random() * 100;
+            
+            // 随机闪烁延迟
+            const delay = Math.random() * 3;
+            
+            star.className = `star ${randomSize}`;
+            star.style.left = left + '%';
+            star.style.top = top + '%';
+            star.style.animationDelay = delay + 's';
+            
+            // 添加到容器
+            container.appendChild(star);
+        }
+
+        // 打字机动画功能
+        function startTypewriterAnimation(userName) {
+            const nameElement = document.getElementById('name');
+            const wishElement = document.getElementById('wish');
+            const meteorBtn = document.getElementById('meteorBtn');
+            
+            // 使用传入的用户名生成个性化祝福
+            const nameText = userName + "，生日快乐！";
+            const wishText = "看着流星划过夜空，所有好运都在向你靠近";
+            
+            let nameIndex = 0;
+            
+            // 先清空内容并隐藏元素
+            nameElement.textContent = '';
+            wishElement.textContent = '';
+            meteorBtn.style.opacity = '0';
+            
+            // 设置初始位置（从下方开始）
+            nameElement.style.transform = 'translateY(50px)';
+            nameElement.style.opacity = '0';
+            
+            // 第一行逐字显示（从下往上浮动）
+            function typeName() {
+                if (nameIndex < nameText.length) {
+                    nameElement.textContent += nameText.charAt(nameIndex);
+                    nameIndex++;
+                    
+                    // 逐渐上浮和淡入
+                    const progress = nameIndex / nameText.length;
+                    nameElement.style.transform = `translateY(${50 - progress * 50}px)`;
+                    nameElement.style.opacity = progress;
+                    
+                    setTimeout(typeName, 250); // 每个字250毫秒（减慢速度）
+                } else {
+                    // 第一行显示完成后，延迟500毫秒显示第二行
+                    setTimeout(() => {
+                        typeWish();
+                    }, 500);
+                }
+            }
+            
+            // 第二行逐字显示（从下往上浮动）
+            function typeWish() {
+                let wishIndex = 0;
+                
+                // 设置初始位置（从下方开始）
+                wishElement.style.transform = 'translateY(30px)';
+                wishElement.style.opacity = '0';
+                
+                function typeWishChar() {
+                    if (wishIndex < wishText.length) {
+                        wishElement.textContent += wishText.charAt(wishIndex);
+                        wishIndex++;
+                        
+                        // 逐渐上浮和淡入
+                        const progress = wishIndex / wishText.length;
+                        wishElement.style.transform = `translateY(${30 - progress * 30}px)`;
+                        wishElement.style.opacity = progress;
+                        
+                        setTimeout(typeWishChar, 200); // 每个字200毫秒
+                    } else {
+                        // 第二行显示完成后，延迟500毫秒显示按钮
+                        setTimeout(() => {
+                            showButton();
+                        }, 500);
+                    }
+                }
+                
+                // 开始第二行逐字显示
+                typeWishChar();
+            }
+            
+            // 按钮渐显显示
+            function showButton() {
+                meteorBtn.style.transition = 'opacity 4s ease-in';
+                
+                // 触发重绘
+                void meteorBtn.offsetWidth;
+                
+                meteorBtn.style.opacity = '1';
+            }
+            
+            // 开始动画
+            setTimeout(typeName, 500);
+        }
+
+        // 流星雨按钮点击事件
+        const meteorBtn = document.getElementById('meteorBtn');
+        const cakePage = document.getElementById('cakePage');
+        let cakePageShown = false;
+
+        meteorBtn.addEventListener('click', () => {
+            if (!cakePageShown) {
+                // 切换到蛋糕祝福页面
+                mainPage.style.opacity = '0';
+                mainPage.style.pointerEvents = 'none';
+                setTimeout(() => {
+                    cakePage.classList.add('active');
+                    // 启动彩带动画
+                    startConfetti();
+                }, 1000);
+                cakePageShown = true;
+            }
+        });
+
+        // 全新的流星系统
+        function startLightMeteorShower() {
+            const meteorShower = document.getElementById('meteorShower');
+            
+            // 持续生成流星，更密集
+            setInterval(() => {
+                createMeteor(meteorShower);
+            }, 200);
+            
+            // 初始生成流星群
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    createMeteor(meteorShower);
+                }, i * 100);
+            }
+        }
+
+        function createMeteor(container) {
+            const meteor = document.createElement('div');
+            meteor.className = 'meteor';
+            
+            // 随机位置 - 更广的分布
+            const startX = Math.random() * window.innerWidth;
+            const startY = Math.random() * 200 - 200;
+            
+            // 随机大小和速度
+            const size = Math.random() * 3 + 1;
+            const duration = Math.random() * 3 + 2;
+            const delay = Math.random() * 2;
+            
+            // 随机颜色
+            const colors = [
+                'linear-gradient(45deg, #fff, #4fc3f7, #e1f5fe)',
+                'linear-gradient(45deg, #fff, #ff9800, #ffeb3b)',
+                'linear-gradient(45deg, #fff, #e91e63, #f8bbd9)',
+                'linear-gradient(45deg, #fff, #9c27b0, #e1bee7)'
+            ];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            // 设置样式
+            meteor.style.left = startX + 'px';
+            meteor.style.top = startY + 'px';
+            meteor.style.width = size + 'px';
+            meteor.style.height = size + 'px';
+            meteor.style.background = randomColor;
+            meteor.style.animation = `meteorFall ${duration}s linear ${delay}s forwards`;
+            meteor.style.opacity = '0.8';
+            
+            // 添加到容器
+            container.appendChild(meteor);
+            
+            // 动画结束后移除元素
+            setTimeout(() => {
+                if (meteor.parentNode) {
+                    meteor.parentNode.removeChild(meteor);
+                }
+            }, (duration + delay) * 1000);
+        }
+
+        // 彩带动画
+        function startConfetti() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#ff6b9d', '#c44569', '#a8e6cf', '#ff8b94', '#ffd93d'];
+            
+            // 持续生成彩带
+            const confettiInterval = setInterval(() => {
+                if (!cakePage.classList.contains('active')) {
+                    clearInterval(confettiInterval);
+                    return;
+                }
+                createConfettiPiece(colors);
+            }, 200);
+            
+            // 初始爆发
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    createConfettiPiece(colors);
+                }, i * 50);
+            }
+            
+            // 启动礼花和星星效果
+            startFireworks();
+            startSparkles();
+        }
+
+        function createConfettiPiece(colors) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const left = Math.random() * 100;
+            const duration = Math.random() * 3 + 3;
+            const size = Math.random() * 8 + 6;
+            
+            confetti.style.left = left + '%';
+            confetti.style.background = color;
+            confetti.style.width = size + 'px';
+            confetti.style.height = size + 'px';
+            confetti.style.animationDuration = duration + 's';
+            
+            // 随机形状
+            const shapes = ['50%', '0%', '50% 0'];
+            confetti.style.borderRadius = shapes[Math.floor(Math.random() * shapes.length)];
+            
+            cakePage.appendChild(confetti);
+            
+            setTimeout(() => {
+                if (confetti.parentNode) {
+                    confetti.parentNode.removeChild(confetti);
+                }
+            }, duration * 1000);
+        }
+
+
+
+        // 礼花爆炸效果
+        function startFireworks() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#ff6b9d', '#ffd93d', '#00d2ff', '#ff8b94', '#a8e6cf', '#ff4500', '#32cd32', '#ff1493', '#00bfff'];
+            
+            // 每隔更短时间发射礼花（增加频率）
+            const fireworkInterval = setInterval(() => {
+                if (!cakePage.classList.contains('active')) {
+                    clearInterval(fireworkInterval);
+                    return;
+                }
+                
+                // 每次发射2-3个礼花
+                const fireworkCount = 2 + Math.floor(Math.random() * 2);
+                for (let j = 0; j < fireworkCount; j++) {
+                    setTimeout(() => {
+                        const x = Math.random() * window.innerWidth;
+                        const y = window.innerHeight - Math.random() * 400;
+                        createFireworkExplosion(x, y, colors);
+                    }, j * 200);
+                }
+            }, 800); // 缩短间隔时间
+            
+            // 初始发射更多礼花
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const x = Math.random() * window.innerWidth;
+                    const y = window.innerHeight - Math.random() * 400;
+                    createFireworkExplosion(x, y, colors);
+                }, i * 300);
+            }
+        }
+
+        function createFireworkExplosion(x, y, colors) {
+            // 增加粒子数量，创造更壮观的爆炸效果
+            const particleCount = 35 + Math.random() * 25;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'firework';
+                
+                // 更随机的角度分布，创造更自然的爆炸效果
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 60 + Math.random() * 120;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+                const duration = 1.2 + Math.random() * 0.8;
+                const size = 4 + Math.random() * 6;
+                
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.background = color;
+                particle.style.boxShadow = `0 0 ${size * 3}px ${color}, 0 0 ${size * 6}px rgba(255,255,255,0.5)`;
+                particle.style.setProperty('--tx', tx + 'px');
+                particle.style.setProperty('--ty', ty + 'px');
+                particle.style.animationDuration = duration + 's';
+                
+                cakePage.appendChild(particle);
+                
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }, duration * 1000);
+            }
+            
+            // 添加二次爆炸效果（小粒子）
+            setTimeout(() => {
+                for (let i = 0; i < 15; i++) {
+                    const smallParticle = document.createElement('div');
+                    smallParticle.className = 'firework';
+                    
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = 20 + Math.random() * 40;
+                    const tx = Math.cos(angle) * distance;
+                    const ty = Math.sin(angle) * distance;
+                    const duration = 0.6 + Math.random() * 0.4;
+                    const size = 2 + Math.random() * 3;
+                    
+                    smallParticle.style.left = x + 'px';
+                    smallParticle.style.top = y + 'px';
+                    smallParticle.style.width = size + 'px';
+                    smallParticle.style.height = size + 'px';
+                    smallParticle.style.background = color;
+                    smallParticle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+                    smallParticle.style.setProperty('--tx', tx + 'px');
+                    smallParticle.style.setProperty('--ty', ty + 'px');
+                    smallParticle.style.animationDuration = duration + 's';
+                    
+                    cakePage.appendChild(smallParticle);
+                    
+                    setTimeout(() => {
+                        if (smallParticle.parentNode) {
+                            smallParticle.parentNode.removeChild(smallParticle);
+                        }
+                    }, duration * 1000);
+                }
+            }, 200);
+        }
+
+        // 底部闪烁星星
+        function startSparkles() {
+            const sparkleCount = 15;
+            
+            for (let i = 0; i < sparkleCount; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                
+                const left = Math.random() * 100;
+                const bottom = Math.random() * 100;
+                const delay = Math.random() * 2;
+                const duration = 1 + Math.random() * 1;
+                
+                sparkle.style.left = left + '%';
+                sparkle.style.bottom = bottom + 'px';
+                sparkle.style.animationDelay = delay + 's';
+                sparkle.style.animationDuration = duration + 's';
+                
+                cakePage.appendChild(sparkle);
+            }
+        }
+    </script>
+</body>
+</html>
