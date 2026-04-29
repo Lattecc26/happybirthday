@@ -15,7 +15,7 @@
 
 ### 在线访问
 通过 GitHub Pages 访问：
-https://你的用户名.github.io/happybirthday/
+https://lattecc26.github.io/happybirthday/happybirthday.html
 
 ### 本地运行
 1. 下载所有文件到本地
@@ -52,9 +52,6 @@ happybirthday/
 - Safari 12+
 - Edge 79+
 
-## 贡献 🤝
-
-欢迎提交 Issue 和 Pull Request 来改进这个项目！
 
 ## 许可证 📄
 
